@@ -25,6 +25,7 @@ def register(app, ctx):
         integer_field(data,'asset_id',nullable=True)
         if data['asset_id'] is not None:
             ctx.asset(data['asset_id'])
+        integer_field(data,'reporter_id',optional=True)
         if 'reporter_id' in data and data['reporter_id'] != g.user['id']:
             raise ApiError('Reporter must match the authenticated user',403)
         data.update(reporter_id=g.user['id'],status='Open',created_at=now())

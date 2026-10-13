@@ -1,5 +1,6 @@
 """Create and verify a consistent SQLite backup; never overwrite a backup."""
 import argparse
+from contextlib import closing
 import hashlib
 import json
 from pathlib import Path
@@ -11,7 +12,7 @@ def backup(source,destination):
     if not source.is_file():raise FileNotFoundError(source)
     if destination.exists():raise FileExistsError('Choose a new backup path')
     destination.parent.mkdir(parents=True,exist_ok=True)
-    with sqlite3.connect(f'{source.as_uri()}?mode=ro',uri=True) as src,sqlite3.connect(destination) as dst:
+    with closing(sqlite3.connect(f'{source.as_uri()}?mode=ro',uri=True)) as src,closing(sqlite3.connect(destination)) as dst:
         src.backup(dst)
         assert dst.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
         assert not dst.execute('PRAGMA foreign_key_check').fetchall()

@@ -19,7 +19,7 @@ from security_backend.core import ADMIN,Context,Database,SERVICES,Settings,now
 ROOT=Path(__file__).resolve().parent
 
 def prepare():
-    runtime=ROOT/'runtime'
+    runtime=Path(os.environ.get('SECURITY_RUNTIME',str(ROOT/'runtime')))
     runtime.mkdir(exist_ok=True)
     key_file=runtime/'service.secret'
     if not key_file.exists():key_file.write_text(secrets.token_urlsafe(48),encoding='utf-8')
@@ -38,8 +38,8 @@ def prepare():
             print('Created first administrator. Local credentials: runtime/bootstrap.json',flush=True)
     return Settings.from_env()
 
-def deliver(settings,stop):
-    contexts=[Context(s,settings) for s in SERVICES]
+def deliver(settings,stop,services=None):
+    contexts=[Context(s,settings) for s in (services or SERVICES)]
     while not stop.is_set():
         for ctx in contexts:
             if stop.is_set():return
@@ -56,6 +56,8 @@ def main():
     settings=prepare()
     if args.service:
         from security_backend.app import create_app
+        service_stop=threading.Event()
+        threading.Thread(target=deliver,args=(settings,service_stop,[args.service]),daemon=True).start()
         create_app(args.service,settings).run(host='127.0.0.1',port=SERVICES[args.service]+args.port_offset,threaded=True,debug=False,use_reloader=False)
         return
     children=[]
@@ -65,11 +67,9 @@ def main():
     signal.signal(signal.SIGTERM,shutdown)
     try:
         for service in SERVICES:
-            log=(ROOT/'runtime'/f'{service}.log').open('a',encoding='utf-8')
+            log=(Path(os.environ.get('SECURITY_RUNTIME',str(ROOT/'runtime')))/f'{service}.log').open('a',encoding='utf-8')
             proc=subprocess.Popen([sys.executable,str(ROOT/'run.py'),'--service',service,'--port-offset',str(args.port_offset)],cwd=ROOT,stdout=log,stderr=log,creationflags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0)
             children.append((proc,log))
-        worker=threading.Thread(target=deliver,args=(settings,stop),daemon=True)
-        worker.start()
         print('Nine services running on 127.0.0.1 ports '+', '.join(str(p+args.port_offset) for p in SERVICES.values()),flush=True)
         print('Press Ctrl+C to stop. Existing database is preserved.',flush=True)
         while not stop.wait(1):

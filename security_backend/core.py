@@ -3,7 +3,7 @@
 Every SQL value is bound. Identifiers come only from programmer-owned constants.
 An outbox is committed with each business write, then delivered over HTTP.
 """
-from contextlib import contextmanager
+from contextlib import contextmanager, closing
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from functools import wraps
@@ -75,7 +75,7 @@ class Database:
 
     def initialize(self):
         Path(self.path).parent.mkdir(parents=True, exist_ok=True)
-        with sqlite3.connect(self.path) as conn:
+        with closing(sqlite3.connect(self.path)) as conn:
             conn.execute('PRAGMA journal_mode=WAL')
             conn.executescript(Path(__file__).with_name('schema.sql').read_text())
 
