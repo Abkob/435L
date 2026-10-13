@@ -1,0 +1,181 @@
+001 PASS 200 users: Administrator login
+002 PASS 401 users: Failed login
+003 PASS 201 users: Register analyst
+004 PASS 200 users: Login analyst
+005 PASS 201 users: Register employee
+006 PASS 200 users: Login employee
+007 PASS 201 users: Register auditor
+008 PASS 200 users: Login auditor
+009 PASS 201 users: Register other
+010 PASS 200 users: Login other
+011 PASS 201 users: Register spare
+012 PASS 200 users: Login spare
+013 PASS 409 users: Reject duplicate username
+014 PASS 403 users: Reject public privilege escalation
+015 PASS 400 users: Reject invalid email
+016 PASS 400 users: Reject weak password
+017 PASS 400 users: Reject missing required fields
+018 PASS 200 users: Update own profile
+019 PASS 200 users: Retrieve own profile
+020 PASS 403 users: Reject other profile access
+021 PASS 200 users: List users
+022 PASS 404 users: Find missing username
+023 PASS 200 users: Role and permission catalog
+024 PASS 403 users: Reject analyst user management
+025 PASS 401 users: Reject missing authentication
+026 PASS 200 users: Assign Auditor role
+027 PASS 401 users: Revoked session after role change
+028 PASS 200 users: Remove elevated role
+029 PASS 200 users: Suspend account
+030 PASS 401 users: Suspended login rejected
+031 PASS 200 users: Set account inactive
+032 PASS 401 users: Inactive login rejected
+033 PASS 200 users: Reactivate account
+034 PASS 403 users: Unauthorized user deletion
+035 PASS 200 users: Delete spare account
+036 PASS 404 users: Deleted user returns 404
+037 PASS 201 assets: Create server
+038 PASS 201 assets: Create workstation
+039 PASS 201 assets: Create application
+040 PASS 200 assets: Asset before update
+041 PASS 200 assets: Update asset
+042 PASS 200 assets: Asset after update
+043 PASS 200 assets: Asset change history
+044 PASS 200 assets: List assets
+045 PASS 200 assets: Search assets by name
+046 PASS 200 assets: Search assets by asset_type
+047 PASS 200 assets: Search assets by ip_address
+048 PASS 200 assets: Search assets by department
+049 PASS 200 assets: Search assets by criticality
+050 PASS 404 assets: Missing asset
+051 PASS 400 assets: Invalid IP address
+052 PASS 400 assets: Invalid criticality
+053 PASS 403 assets: Unauthorized asset delete
+054 PASS 200 assets: Delete unreferenced asset
+055 PASS 403 assets: Employee cannot list assets
+056 PASS 201 incidents: Report low incident
+057 PASS 201 incidents: Report medium incident
+058 PASS 201 incidents: Report high incident
+059 PASS 201 incidents: Report critical incident
+060 PASS 200 incidents: List all incidents
+061 PASS 200 incidents: Employee submitted incidents
+062 PASS 403 incidents: Reject other reporter access
+063 PASS 403 incidents: Reject unassigned analyst
+064 PASS 404 incidents: Missing incident
+065 PASS 403 incidents: Unauthorized assignment
+066 PASS 400 incidents: Reject non-analyst assignee
+067 PASS 200 incidents: Assign analyst
+068 PASS 200 incidents: Analyst assigned incidents
+069 PASS 200 assets: Analyst related asset
+070 PASS 403 assets: Analyst unrelated asset rejected
+071 PASS 200 assets: Analyst scoped asset search
+072 PASS 409 incidents: Reject skipped incident lifecycle
+073 PASS 201 incidents: Investigation note
+074 PASS 200 incidents: Retrieve incident with notes
+075 PASS 200 incidents: Incident becomes Under Investigation
+076 PASS 200 incidents: Incident becomes Mitigated
+077 PASS 200 incidents: Incident becomes Resolved
+078 PASS 200 incidents: Incident becomes Closed
+079 PASS 403 incidents: Employee status modification rejected
+080 PASS 400 incidents: Invalid incident severity
+081 PASS 409 assets: Prevent deletion of referenced asset
+082 PASS 201 threats: Create IP Address indicator
+083 PASS 201 threats: Create Domain indicator
+084 PASS 201 threats: Create File Hash indicator
+085 PASS 409 threats: Duplicate indicator rejected
+086 PASS 400 threats: Invalid domain rejected
+087 PASS 400 threats: Invalid hash rejected
+088 PASS 200 threats: List threat indicators
+089 PASS 200 threats: Threat before update
+090 PASS 200 threats: Update threat information
+091 PASS 200 threats: Threat after update
+092 PASS 200 threats: Search threats by threat_type
+093 PASS 200 threats: Search threats by value
+094 PASS 200 threats: Search threats by severity
+095 PASS 200 threats: Search threats by source
+096 PASS 404 threats: Missing threat
+097 PASS 403 threats: Unauthorized threat deletion
+098 PASS 200 threats: Delete threat
+099 PASS 403 threats: Employee threat access rejected
+100 PASS 201 vulnerabilities: Create critical vulnerability
+101 PASS 201 vulnerabilities: Create high vulnerability
+102 PASS 201 vulnerabilities: Create low vulnerability
+103 PASS 200 vulnerabilities: List vulnerabilities
+104 PASS 200 vulnerabilities: Vulnerability before update
+105 PASS 200 vulnerabilities: Update vulnerability details
+106 PASS 409 vulnerabilities: Reject skipped remediation lifecycle
+107 PASS 200 vulnerabilities: Vulnerability becomes Under Investigation
+108 PASS 200 vulnerabilities: Vulnerability becomes In Progress
+109 PASS 200 vulnerabilities: Vulnerability becomes Resolved
+110 PASS 200 vulnerabilities: Vulnerability becomes Closed
+111 PASS 200 vulnerabilities: Vulnerability after update
+112 PASS 200 vulnerabilities: Search vulnerabilities by cve
+113 PASS 200 vulnerabilities: Search vulnerabilities by severity
+114 PASS 200 vulnerabilities: Search vulnerabilities by asset_id
+115 PASS 200 vulnerabilities: Search vulnerabilities by status
+116 PASS 404 vulnerabilities: Missing vulnerability
+117 PASS 400 vulnerabilities: Invalid CVSS
+118 PASS 403 vulnerabilities: Unauthorized vulnerability delete
+119 PASS 200 vulnerabilities: Delete vulnerability
+120 PASS 201 notifications: Create security alert
+121 PASS 201 notifications: Create system notification
+122 PASS 200 notifications: Employee personal notifications
+123 PASS 200 notifications: Analyst assignment notification
+124 PASS 200 notifications: Notification before read
+125 PASS 200 notifications: Mark notification read
+126 PASS 200 notifications: Notification after read
+127 PASS 403 notifications: Reject other notification access
+128 PASS 200 notifications: Search notifications by user_id
+129 PASS 200 notifications: Search notifications by notification_type
+130 PASS 200 notifications: Search notifications by severity
+131 PASS 200 notifications: Search notifications by status
+132 PASS 404 notifications: Missing notification
+133 PASS 403 notifications: Auditor cannot mark read
+134 PASS 403 notifications: Unauthorized notification delete
+135 PASS 200 notifications: Delete notification
+136 PASS 201 playbooks: Create response playbook 1
+137 PASS 201 playbooks: Create response playbook 2
+138 PASS 200 playbooks: List playbooks
+139 PASS 201 playbooks: Add ordered action 1
+140 PASS 201 playbooks: Add ordered action 2
+141 PASS 409 playbooks: Reject out of order action
+142 PASS 409 playbooks: Reject skipped action status
+143 PASS 200 playbooks: Action 1 becomes In Progress
+144 PASS 200 playbooks: Action 1 becomes Completed
+145 PASS 200 playbooks: Action 2 becomes In Progress
+146 PASS 200 playbooks: Action 2 becomes Completed
+147 PASS 200 playbooks: Playbook with ordered actions and history
+148 PASS 404 playbooks: Missing playbook
+149 PASS 403 playbooks: Unauthorized playbook deletion
+150 PASS 200 playbooks: Delete unused playbook
+151 PASS 201 logs: Create manual audit log 1
+152 PASS 201 logs: Create manual audit log 2
+153 PASS 200 logs: List automatic and manual logs
+154 PASS 200 logs: Retrieve audit record
+155 PASS 404 logs: Missing audit record
+156 PASS 200 logs: Search logs by user_id
+157 PASS 200 logs: Search logs by date
+158 PASS 200 logs: Search logs by action
+159 PASS 200 logs: Search logs by severity
+160 PASS 200 logs: Search logs by related_service
+161 PASS 200 logs: Logs by user
+162 PASS 403 logs: Unauthorized audit deletion
+163 PASS 200 logs: Delete manual audit log
+164 PASS 200 reports: Generate summary report
+165 PASS 200 reports: Generate incidents report
+166 PASS 200 reports: Generate assets report
+167 PASS 200 reports: Generate threats report
+168 PASS 200 reports: Generate vulnerabilities report
+169 PASS 200 reports: Generate activity report
+170 PASS 403 reports: Analyst reports rejected
+171 PASS 403 reports: Employee reports rejected
+172 PASS 200 users: Employee logout
+173 PASS 401 users: Logged out token rejected
+{
+  "requests": 173,
+  "assertions": 364,
+  "passed": 173,
+  "failures": [],
+  "run_id": "r1791896720766f",
+  "transport": "Real HTTP requests to nine independent local services"
+}

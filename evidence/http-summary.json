@@ -1,0 +1,8 @@
+{
+  "requests": 173,
+  "assertions": 364,
+  "passed": 173,
+  "failures": [],
+  "run_id": "r1791896720766f",
+  "transport": "Real HTTP requests to nine independent local services"
+}

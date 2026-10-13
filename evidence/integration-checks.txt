@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-10-13T13:22:56.447572+00:00",
+  "report_comparisons": {
+    "assets": {
+      "api_total": 4,
+      "database_total": 4,
+      "groups_match": true
+    },
+    "incidents": {
+      "api_total": 8,
+      "database_total": 8,
+      "groups_match": true
+    },
+    "threats": {
+      "api_total": 4,
+      "database_total": 4,
+      "groups_match": true
+    },
+    "vulnerabilities": {
+      "api_total": 4,
+      "database_total": 4,
+      "groups_match": true
+    }
+  },
+  "activity_report_matches": true,
+  "summary_report_matches": true,
+  "integrity_check": "ok",
+  "foreign_key_violations": 0,
+  "outbox_pending": 0,
+  "empty_notifications_verified": true,
+  "empty_logs_verified": true,
+  "backup": {
+    "created_at": "2026-10-13T13:22:56.442567+00:00",
+    "sha256": "4afde399d48936cc63edad380d3cd015e551b836a5524b5015cc0e73f8028dc1",
+    "integrity_check": "ok",
+    "foreign_key_violations": 0,
+    "table_counts": {
+      "users": 12,
+      "sessions": 9,
+      "login_attempts": 4,
+      "assets": 4,
+      "asset_history": 10,
+      "incidents": 8,
+      "investigation_notes": 2,
+      "threats": 4,
+      "logs": 187,
+      "vulnerabilities": 4,
+      "notifications": 30,
+      "playbooks": 4,
+      "response_actions": 4,
+      "action_history": 12,
+      "outbox": 214
+    }
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "checked_at": "2026-10-13T13:22:56.447572+00:00",
+  "report_comparisons": {
+    "assets": {
+      "api_total": 4,
+      "database_total": 4,
+      "groups_match": true
+    },
+    "incidents": {
+      "api_total": 8,
+      "database_total": 8,
+      "groups_match": true
+    },
+    "threats": {
+      "api_total": 4,
+      "database_total": 4,
+      "groups_match": true
+    },
+    "vulnerabilities": {
+      "api_total": 4,
+      "database_total": 4,
+      "groups_match": true
+    }
+  },
+  "activity_report_matches": true,
+  "summary_report_matches": true,
+  "integrity_check": "ok",
+  "foreign_key_violations": 0,
+  "outbox_pending": 0,
+  "empty_notifications_verified": true,
+  "empty_logs_verified": true,
+  "automatic_events": [
+    "access.denied",
+    "action.created",
+    "action.status_changed",
+    "asset.created",
+    "asset.deleted",
+    "asset.updated",
+    "incident.assigned",
+    "incident.created",
+    "incident.note_added",
+    "incident.status_changed",
+    "lab.review",
+    "log.created",
+    "log.deleted",
+    "login.failed",
+    "login.succeeded",
+    "notification.created",
+    "notification.deleted",
+    "notification.read",
+    "playbook.created",
+    "playbook.deleted",
+    "role.changed",
+    "threats.created",
+    "threats.deleted",
+    "threats.updated",
+    "user.created",
+    "user.deleted",
+    "user.logout",
+    "user.status_changed",
+    "user.updated",
+    "vulnerabilities.created",
+    "vulnerabilities.deleted",
+    "vulnerabilities.updated"
+  ],
+  "backup": {
+    "created_at": "2026-10-13T13:22:56.442567+00:00",
+    "sha256": "4afde399d48936cc63edad380d3cd015e551b836a5524b5015cc0e73f8028dc1",
+    "integrity_check": "ok",
+    "foreign_key_violations": 0,
+    "table_counts": {
+      "users": 12,
+      "sessions": 9,
+      "login_attempts": 4,
+      "assets": 4,
+      "asset_history": 10,
+      "incidents": 8,
+      "investigation_notes": 2,
+      "threats": 4,
+      "logs": 187,
+      "vulnerabilities": 4,
+      "notifications": 30,
+      "playbooks": 4,
+      "response_actions": 4,
+      "action_history": 12,
+      "outbox": 214
+    }
+  },
+  "captures": [
+    {
+      "service": "users",
+      "method": "POST",
+      "url": "http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register",
+      "request_body": {
+        "full_name": "Empty Results Test Account",
+        "username": "emptyc483c26bc9",
+        "email": "emptyc483c26bc9@example.test",
+        "password": "[REDACTED]",
+        "department": "Lab",
+        "role": "Regular Employee/User"
+      },
+      "status": 201,
+      "response": {
+        "data": {
+          "account_status": "Active",
+          "created_at": "2026-10-13T13:22:53.585574+00:00",
+          "department": "Lab",
+          "email": "emptyc483c26bc9@example.test",
+          "full_name": "Empty Results Test Account",
+          "id": 12,
+          "last_login_at": null,
+          "role": "Regular Employee/User",
+          "username": "emptyc483c26bc9"
+        },
+        "status": "success"
+      }
+    },
+    {
+      "service": "logs",
+      "method": "GET",
+      "url": "http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/user/12",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": [],
+        "status": "success"
+      }
+    },
+    {
+      "service": "notifications",
+      "method": "GET",
+      "url": "http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/user/12",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": [
+          {
+            "created_at": "2026-10-13T13:22:53.591570+00:00",
+            "event_id": "c607a7dd-b5f1-48d1-bac1-7a7dd083c699",
+            "id": 31,
+            "message": "Your account is ready.",
+            "notification_type": "System Notification",
+            "read_date": null,
+            "severity": "Low",
+            "status": "Unread",
+            "title": "Account created",
+            "user_id": 12
+          }
+        ],
+        "status": "success"
+      }
+    },
+    {
+      "service": "notifications",
+      "method": "DELETE",
+      "url": "http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/31",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": {
+          "deleted": true,
+          "id": 31
+        },
+        "status": "success"
+      }
+    },
+    {
+      "service": "notifications",
+      "method": "GET",
+      "url": "http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/user/12",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": [],
+        "status": "success"
+      }
+    },
+    {
+      "service": "assets",
+      "method": "GET",
+      "url": "http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/search?name=%27%20OR%201%3D1--",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": [],
+        "status": "success"
+      }
+    },
+    {
+      "service": "reports",
+      "method": "GET",
+      "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/assets",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": {
+          "by_type": {
+            "Server": 2,
+            "Workstation": 2
+          },
+          "critical_assets": 2,
+          "generated_at": "2026-10-13T13:22:55.332917+00:00",
+          "source": "Service HTTP APIs",
+          "total": 4
+        },
+        "status": "success"
+      }
+    },
+    {
+      "service": "reports",
+      "method": "GET",
+      "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/incidents",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": {
+          "by_severity": {
+            "Critical": 2,
+            "High": 2,
+            "Low": 2,
+            "Medium": 2
+          },
+          "by_status": {
+            "Closed": 2,
+            "Open": 6
+          },
+          "generated_at": "2026-10-13T13:22:55.434662+00:00",
+          "source": "Service HTTP APIs",
+          "total": 8
+        },
+        "status": "success"
+      }
+    },
+    {
+      "service": "reports",
+      "method": "GET",
+      "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/threats",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": {
+          "by_severity": {
+            "Critical": 2,
+            "Medium": 2
+          },
+          "by_type": {
+            "Domain": 2,
+            "IP Address": 2
+          },
+          "generated_at": "2026-10-13T13:22:55.543203+00:00",
+          "recent_added": [
+            {
+              "created_at": "2026-10-13T13:05:37.433214+00:00",
+              "description": "Escalated lab indicator",
+              "id": 1,
+              "severity": "Critical",
+              "source": "Lab review",
+              "threat_type": "IP Address",
+              "value": "198.18.147.64"
+            },
+            {
+              "created_at": "2026-10-13T13:05:37.499042+00:00",
+              "description": "Fictional test indicator; not external threat intelligence.",
+              "id": 2,
+              "severity": "Medium",
+              "source": "Local lab",
+              "threat_type": "Domain",
+              "value": "r1791896720766f.example.test"
+            },
+            {
+              "created_at": "2026-10-13T13:12:01.522782+00:00",
+              "description": "Escalated lab indicator",
+              "id": 3,
+              "severity": "Critical",
+              "source": "Lab review",
+              "threat_type": "IP Address",
+              "value": "198.18.24.154"
+            },
+            {
+              "created_at": "2026-10-13T13:12:01.772383+00:00",
+              "description": "Fictional test indicator; not external threat intelligence.",
+              "id": 4,
+              "severity": "Medium",
+              "source": "Local lab",
+              "threat_type": "Domain",
+              "value": "r17918970950626932.example.test"
+            }
+          ],
+          "source": "Service HTTP APIs",
+          "total": 4
+        },
+        "status": "success"
+      }
+    },
+    {
+      "service": "reports",
+      "method": "GET",
+      "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/vulnerabilities",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": {
+          "by_severity": {
+            "Critical": 2,
+            "High": 2
+          },
+          "by_status": {
+            "Closed": 2,
+            "Open": 2
+          },
+          "critical_vulnerabilities": 2,
+          "generated_at": "2026-10-13T13:22:55.716431+00:00",
+          "source": "Service HTTP APIs",
+          "total": 4
+        },
+        "status": "success"
+      }
+    },
+    {
+      "service": "reports",
+      "method": "GET",
+      "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/activity",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": {
+          "failed_login_attempts": 6,
+          "generated_at": "2026-10-13T13:22:55.856761+00:00",
+          "login_attempts": 19,
+          "most_performed_actions": [
+            {
+              "action": "access.denied",
+              "count": 48
+            },
+            {
+              "action": "login.succeeded",
+              "count": 13
+            },
+            {
+              "action": "user.created",
+              "count": 11
+            },
+            {
+              "action": "vulnerabilities.updated",
+              "count": 10
+            },
+            {
+              "action": "incident.created",
+              "count": 8
+            },
+            {
+              "action": "incident.status_changed",
+              "count": 8
+            },
+            {
+              "action": "action.status_changed",
+              "count": 8
+            },
+            {
+              "action": "login.failed",
+              "count": 6
+            },
+            {
+              "action": "user.status_changed",
+              "count": 6
+            },
+            {
+              "action": "asset.created",
+              "count": 6
+            }
+          ],
+          "source": "Service HTTP APIs",
+          "total_activities": 187
+        },
+        "status": "success"
+      }
+    },
+    {
+      "service": "reports",
+      "method": "GET",
+      "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/summary",
+      "request_body": null,
+      "status": 200,
+      "response": {
+        "data": {
+          "assets": 4,
+          "critical_threats": 2,
+          "generated_at": "2026-10-13T13:22:56.375391+00:00",
+          "incidents": 8,
+          "logs": 187,
+          "open_incidents": 6,
+          "recent_activities": [
+            {
+              "action": "access.denied",
+              "created_at": "2026-10-13T13:12:24.080075+00:00",
+              "description": "GET /Abdulrahman-Kobeissi/users/r17918970950626932_employee: Invalid, expired or revoked session",
+              "event_id": "68e1163d-bd4b-4394-a8f2-c9ec83c92488",
+              "id": 185,
+              "related_service": "users",
+              "severity": "Warning",
+              "user_id": null
+            },
+            {
+              "action": "access.denied",
+              "created_at": "2026-10-13T13:12:23.598979+00:00",
+              "description": "GET /Abdulrahman-Kobeissi/reports/summary: Your role does not permit this operation",
+              "event_id": "f96396b4-68e6-4613-b1ff-bd5b668e4fe6",
+              "id": 186,
+              "related_service": "reports",
+              "severity": "Warning",
+              "user_id": 8
+            },
+            {
+              "action": "login.succeeded",
+              "created_at": "2026-10-13T13:22:52.726717+00:00",
+              "description": "User authenticated",
+              "event_id": "27a67658-d13d-4d5c-85c6-714b5bf60b6b",
+              "id": 187,
+              "related_service": "users",
+              "severity": "Information",
+              "user_id": 1
+            },
+            {
+              "action": "user.created",
+              "created_at": "2026-10-13T13:22:53.590569+00:00",
+              "description": "Created account emptyc483c26bc9",
+              "event_id": "fbe12fe7-d315-4ee2-b38d-c3bd871c6a12",
+              "id": 188,
+              "related_service": "users",
+              "severity": "Information",
+              "user_id": 1
+            },
+            {
+              "action": "notification.deleted",
+              "created_at": "2026-10-13T13:22:54.889515+00:00",
+              "description": "notification.deleted: record 31",
+              "event_id": "fefa40d2-14ce-44fa-a1b6-4a10d25db5da",
+              "id": 189,
+              "related_service": "notifications",
+              "severity": "Information",
+              "user_id": 1
+            }
+          ],
+          "source": "Service HTTP APIs",
+          "threats": 4,
+          "users": 10,
+          "vulnerabilities": 4
+        },
+        "status": "success"
+      }
+    }
+  ]
+}

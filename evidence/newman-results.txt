@@ -1,0 +1,907 @@
+newman
+
+Sprint 1 — Abdulrahman Kobeissi
+
+→ 001 Administrator login
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/login [200 OK, 737B, 504ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 002 Failed login
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/login [401 UNAUTHORIZED, 431B, 488ms]
+  √  HTTP 401
+  √  Consistent response envelope
+
+→ 003 Register analyst
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register [201 CREATED, 602B, 483ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 004 Login analyst
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/login [200 OK, 765B, 455ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 005 Register employee
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register [201 CREATED, 612B, 477ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 006 Login employee
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/login [200 OK, 775B, 458ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 007 Register auditor
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register [201 CREATED, 595B, 491ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 008 Login auditor
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/login [200 OK, 758B, 529ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 009 Register other
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register [201 CREATED, 604B, 744ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 010 Login other
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/login [200 OK, 767B, 537ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 011 Register spare
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register [201 CREATED, 604B, 513ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 012 Login spare
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/login [200 OK, 767B, 463ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 013 Reject duplicate username
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register [409 CONFLICT, 463B, 404ms]
+  √  HTTP 409
+  √  Consistent response envelope
+
+→ 014 Reject public privilege escalation
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register [403 FORBIDDEN, 454B, 22ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 015 Reject invalid email
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register [400 BAD REQUEST, 411B, 6ms]
+  √  HTTP 400
+  √  Consistent response envelope
+
+→ 016 Reject weak password
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register [400 BAD REQUEST, 479B, 10ms]
+  √  HTTP 400
+  √  Consistent response envelope
+
+→ 017 Reject missing required fields
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register [400 BAD REQUEST, 412B, 7ms]
+  √  HTTP 400
+  √  Consistent response envelope
+
+→ 018 Update own profile
+  PUT http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/8 [200 OK, 637B, 21ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  department
+
+→ 019 Retrieve own profile
+  GET http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/r17918970950626932_employee [200 OK, 637B, 80ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  full_name
+
+→ 020 Reject other profile access
+  GET http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/r17918970950626932_employee [403 FORBIDDEN, 425B, 15ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 021 List users
+  GET http://127.0.0.1:5101/Abdulrahman-Kobeissi/users [200 OK, 3.3kB, 16ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 022 Find missing username
+  GET http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/missing_r17918970950626932 [404 NOT FOUND, 402B, 13ms]
+  √  HTTP 404
+  √  Consistent response envelope
+
+→ 023 Role and permission catalog
+  GET http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/permissions [200 OK, 665B, 8ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 024 Reject analyst user management
+  GET http://127.0.0.1:5101/Abdulrahman-Kobeissi/users [403 FORBIDDEN, 429B, 17ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 025 Reject missing authentication
+  GET http://127.0.0.1:5101/Abdulrahman-Kobeissi/users [401 UNAUTHORIZED, 424B, 16ms]
+  √  HTTP 401
+  √  Consistent response envelope
+
+→ 026 Assign Auditor role
+  PUT http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/11/role [200 OK, 615B, 20ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 027 Revoked session after role change
+  GET http://127.0.0.1:5101/Abdulrahman-Kobeissi/users [401 UNAUTHORIZED, 427B, 21ms]
+  √  HTTP 401
+  √  Consistent response envelope
+
+→ 028 Remove elevated role
+  DELETE http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/11/role [200 OK, 629B, 18ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  role
+
+→ 029 Suspend account
+  PUT http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/11/status [200 OK, 632B, 21ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 030 Suspended login rejected
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/login [401 UNAUTHORIZED, 431B, 452ms]
+  √  HTTP 401
+  √  Consistent response envelope
+
+→ 031 Set account inactive
+  PUT http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/11/status [200 OK, 631B, 21ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 032 Inactive login rejected
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/login [401 UNAUTHORIZED, 431B, 421ms]
+  √  HTTP 401
+  √  Consistent response envelope
+
+→ 033 Reactivate account
+  PUT http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/11/status [200 OK, 629B, 20ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 034 Unauthorized user deletion
+  DELETE http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/11 [403 FORBIDDEN, 429B, 76ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 035 Delete spare account
+  DELETE http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/11 [200 OK, 350B, 25ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 036 Deleted user returns 404
+  GET http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/r17918970950626932_spare [404 NOT FOUND, 402B, 12ms]
+  √  HTTP 404
+  √  Consistent response envelope
+
+→ 037 Create server
+  POST http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets [201 CREATED, 589B, 70ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 038 Create workstation
+  POST http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets [201 CREATED, 597B, 73ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 039 Create application
+  POST http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets [201 CREATED, 594B, 47ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 040 Asset before update
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/3 [200 OK, 625B, 29ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 041 Update asset
+  PUT http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/3 [200 OK, 605B, 36ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 042 Asset after update
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/3 [200 OK, 646B, 27ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 043 Asset change history
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/3/history [200 OK, 2.5kB, 17ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 044 List assets
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets [200 OK, 1.68kB, 17ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 045 Search assets by name
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/search?name=Protected [200 OK, 883B, 22ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 046 Search assets by asset_type
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/search?asset_type=Server [200 OK, 883B, 30ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 047 Search assets by ip_address
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/search?ip_address=192.0.2.11 [200 OK, 883B, 27ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 048 Search assets by department
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/search?department=IT [200 OK, 1.68kB, 29ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 049 Search assets by criticality
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/search?criticality=Critical [200 OK, 883B, 30ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 050 Missing asset
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/99999999 [404 NOT FOUND, 412B, 41ms]
+  √  HTTP 404
+  √  Consistent response envelope
+
+→ 051 Invalid IP address
+  PUT http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/3 [400 BAD REQUEST, 428B, 27ms]
+  √  HTTP 400
+  √  Consistent response envelope
+
+→ 052 Invalid criticality
+  PUT http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/3 [400 BAD REQUEST, 446B, 16ms]
+  √  HTTP 400
+  √  Consistent response envelope
+
+→ 053 Unauthorized asset delete
+  DELETE http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/5 [403 FORBIDDEN, 429B, 49ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 054 Delete unreferenced asset
+  DELETE http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/5 [200 OK, 349B, 35ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 055 Employee cannot list assets
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets [403 FORBIDDEN, 429B, 46ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 056 Report low incident
+  POST http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents [201 CREATED, 623B, 70ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 057 Report medium incident
+  POST http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents [201 CREATED, 629B, 45ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 058 Report high incident
+  POST http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents [201 CREATED, 625B, 71ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 059 Report critical incident
+  POST http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents [201 CREATED, 633B, 72ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 060 List all incidents
+  GET http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents [200 OK, 2.73kB, 31ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 061 Employee submitted incidents
+  GET http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents [200 OK, 1.52kB, 29ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 062 Reject other reporter access
+  GET http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5 [403 FORBIDDEN, 429B, 42ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 063 Reject unassigned analyst
+  GET http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5 [403 FORBIDDEN, 420B, 88ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 064 Missing incident
+  GET http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/99999999 [404 NOT FOUND, 415B, 37ms]
+  √  HTTP 404
+  √  Consistent response envelope
+
+→ 065 Unauthorized assignment
+  PUT http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5/assign [403 FORBIDDEN, 429B, 30ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 066 Reject non-analyst assignee
+  PUT http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5/assign [400 BAD REQUEST, 439B, 40ms]
+  √  HTTP 400
+  √  Consistent response envelope
+
+→ 067 Assign analyst
+  PUT http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5/assign [200 OK, 615B, 46ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 068 Analyst assigned incidents
+  GET http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents [200 OK, 617B, 19ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 069 Analyst related asset
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/3 [200 OK, 653B, 31ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 070 Analyst unrelated asset rejected
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/4 [403 FORBIDDEN, 436B, 42ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 071 Analyst scoped asset search
+  GET http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/search?department=IT [200 OK, 607B, 30ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 072 Reject skipped incident lifecycle
+  PUT http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5/status [409 CONFLICT, 426B, 32ms]
+  √  HTTP 409
+  √  Consistent response envelope
+
+→ 073 Investigation note
+  POST http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5/notes [201 CREATED, 504B, 38ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 074 Retrieve incident with notes
+  GET http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5 [200 OK, 798B, 30ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 075 Incident becomes Under Investigation
+  PUT http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5/status [200 OK, 630B, 36ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 076 Incident becomes Mitigated
+  PUT http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5/status [200 OK, 620B, 39ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 077 Incident becomes Resolved
+  PUT http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5/status [200 OK, 649B, 26ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 078 Incident becomes Closed
+  PUT http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/5/status [200 OK, 647B, 43ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 079 Employee status modification rejected
+  PUT http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents/6/status [403 FORBIDDEN, 429B, 36ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 080 Invalid incident severity
+  POST http://127.0.0.1:5103/Abdulrahman-Kobeissi/incidents [400 BAD REQUEST, 443B, 52ms]
+  √  HTTP 400
+  √  Consistent response envelope
+
+→ 081 Prevent deletion of referenced asset
+  DELETE http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/3 [409 CONFLICT, 464B, 17ms]
+  √  HTTP 409
+  √  Consistent response envelope
+
+→ 082 Create IP Address indicator
+  POST http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats [201 CREATED, 554B, 42ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 083 Create Domain indicator
+  POST http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats [201 CREATED, 570B, 35ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 084 Create File Hash indicator
+  POST http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats [201 CREATED, 608B, 43ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 085 Duplicate indicator rejected
+  POST http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats [409 CONFLICT, 463B, 28ms]
+  √  HTTP 409
+  √  Consistent response envelope
+
+→ 086 Invalid domain rejected
+  POST http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats [400 BAD REQUEST, 415B, 14ms]
+  √  HTTP 400
+  √  Consistent response envelope
+
+→ 087 Invalid hash rejected
+  POST http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats [400 BAD REQUEST, 435B, 12ms]
+  √  HTTP 400
+  √  Consistent response envelope
+
+→ 088 List threat indicators
+  GET http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats [200 OK, 1.5kB, 72ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 089 Threat before update
+  GET http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats/3 [200 OK, 549B, 28ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 090 Update threat information
+  PUT http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats/3 [200 OK, 518B, 41ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 091 Threat after update
+  GET http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats/3 [200 OK, 518B, 28ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 092 Search threats by threat_type
+  GET http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats/search?threat_type=Domain [200 OK, 803B, 29ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 093 Search threats by value
+  GET http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats/search?value=example.test [200 OK, 803B, 27ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 094 Search threats by severity
+  GET http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats/search?severity=Critical [200 OK, 989B, 29ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 095 Search threats by source
+  GET http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats/search?source=Lab [200 OK, 1.47kB, 18ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 096 Missing threat
+  GET http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats/99999999 [404 NOT FOUND, 413B, 28ms]
+  √  HTTP 404
+  √  Consistent response envelope
+
+→ 097 Unauthorized threat deletion
+  DELETE http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats/5 [403 FORBIDDEN, 429B, 36ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 098 Delete threat
+  DELETE http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats/5 [200 OK, 349B, 37ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 099 Employee threat access rejected
+  GET http://127.0.0.1:5104/Abdulrahman-Kobeissi/threats [403 FORBIDDEN, 429B, 37ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 100 Create critical vulnerability
+  POST http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities [201 CREATED, 660B, 101ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 101 Create high vulnerability
+  POST http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities [201 CREATED, 652B, 67ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 102 Create low vulnerability
+  POST http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities [201 CREATED, 650B, 76ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 103 List vulnerabilities
+  GET http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities [200 OK, 1.95kB, 16ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 104 Vulnerability before update
+  GET http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/3 [200 OK, 655B, 15ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 105 Update vulnerability details
+  PUT http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/3 [200 OK, 623B, 41ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 106 Reject skipped remediation lifecycle
+  PUT http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/3 [409 CONFLICT, 426B, 29ms]
+  √  HTTP 409
+  √  Consistent response envelope
+
+→ 107 Vulnerability becomes Under Investigation
+  PUT http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/3 [200 OK, 638B, 38ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 108 Vulnerability becomes In Progress
+  PUT http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/3 [200 OK, 630B, 23ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 109 Vulnerability becomes Resolved
+  PUT http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/3 [200 OK, 657B, 25ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 110 Vulnerability becomes Closed
+  PUT http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/3 [200 OK, 655B, 38ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 111 Vulnerability after update
+  GET http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/3 [200 OK, 655B, 32ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 112 Search vulnerabilities by cve
+  GET http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/search?cve=CVE-2026-99001 [200 OK, 986B, 17ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 113 Search vulnerabilities by severity
+  GET http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/search?severity=Critical [200 OK, 986B, 66ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 114 Search vulnerabilities by asset_id
+  GET http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/search?asset_id=3 [200 OK, 1.3kB, 28ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 115 Search vulnerabilities by status
+  GET http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/search?status=Closed [200 OK, 986B, 28ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 116 Missing vulnerability
+  GET http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/99999999 [404 NOT FOUND, 421B, 17ms]
+  √  HTTP 404
+  √  Consistent response envelope
+
+→ 117 Invalid CVSS
+  PUT http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/3 [400 BAD REQUEST, 425B, 26ms]
+  √  HTTP 400
+  √  Consistent response envelope
+
+→ 118 Unauthorized vulnerability delete
+  DELETE http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/5 [403 FORBIDDEN, 429B, 38ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 119 Delete vulnerability
+  DELETE http://127.0.0.1:5107/Abdulrahman-Kobeissi/vulnerabilities/5 [200 OK, 349B, 28ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 120 Create security alert
+  POST http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications [201 CREATED, 585B, 31ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 121 Create system notification
+  POST http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications [201 CREATED, 595B, 54ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 122 Employee personal notifications
+  GET http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/user/8 [200 OK, 2.21kB, 44ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 123 Analyst assignment notification
+  GET http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/user/7 [200 OK, 898B, 60ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 124 Notification before read
+  GET http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/30 [200 OK, 580B, 15ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 125 Mark notification read
+  PUT http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/30/read [200 OK, 608B, 76ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 126 Notification after read
+  GET http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/30 [200 OK, 608B, 28ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 127 Reject other notification access
+  GET http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/30 [403 FORBIDDEN, 431B, 38ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 128 Search notifications by user_id
+  GET http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/search?user_id=8 [200 OK, 2.24kB, 30ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 129 Search notifications by notification_type
+  GET http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/search?notification_type=Security%20Alert [200 OK, 3.06kB, 30ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 130 Search notifications by severity
+  GET http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/search?severity=Medium [200 OK, 1.7kB, 29ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 131 Search notifications by status
+  GET http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/search?status=Read [200 OK, 892B, 31ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 132 Missing notification
+  GET http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/99999999 [404 NOT FOUND, 419B, 28ms]
+  √  HTTP 404
+  √  Consistent response envelope
+
+→ 133 Auditor cannot mark read
+  PUT http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/30/read [403 FORBIDDEN, 429B, 44ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 134 Unauthorized notification delete
+  DELETE http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/31 [403 FORBIDDEN, 429B, 39ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 135 Delete notification
+  DELETE http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/31 [200 OK, 350B, 37ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 136 Create response playbook 1
+  POST http://127.0.0.1:5109/Abdulrahman-Kobeissi/playbooks [201 CREATED, 568B, 24ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 137 Create response playbook 2
+  POST http://127.0.0.1:5109/Abdulrahman-Kobeissi/playbooks [201 CREATED, 568B, 86ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 138 List playbooks
+  GET http://127.0.0.1:5109/Abdulrahman-Kobeissi/playbooks [200 OK, 1.04kB, 31ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 139 Add ordered action 1
+  POST http://127.0.0.1:5109/Abdulrahman-Kobeissi/playbooks/3/actions [201 CREATED, 472B, 70ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 140 Add ordered action 2
+  POST http://127.0.0.1:5109/Abdulrahman-Kobeissi/playbooks/3/actions [201 CREATED, 467B, 68ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 141 Reject out of order action
+  PUT http://127.0.0.1:5109/Abdulrahman-Kobeissi/actions/4/status [409 CONFLICT, 425B, 29ms]
+  √  HTTP 409
+  √  Consistent response envelope
+
+→ 142 Reject skipped action status
+  PUT http://127.0.0.1:5109/Abdulrahman-Kobeissi/actions/3/status [409 CONFLICT, 432B, 20ms]
+  √  HTTP 409
+  √  Consistent response envelope
+
+→ 143 Action 1 becomes In Progress
+  PUT http://127.0.0.1:5109/Abdulrahman-Kobeissi/actions/3/status [200 OK, 471B, 36ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 144 Action 1 becomes Completed
+  PUT http://127.0.0.1:5109/Abdulrahman-Kobeissi/actions/3/status [200 OK, 499B, 66ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 145 Action 2 becomes In Progress
+  PUT http://127.0.0.1:5109/Abdulrahman-Kobeissi/actions/4/status [200 OK, 466B, 43ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 146 Action 2 becomes Completed
+  PUT http://127.0.0.1:5109/Abdulrahman-Kobeissi/actions/4/status [200 OK, 494B, 45ms]
+  √  HTTP 200
+  √  Consistent response envelope
+  √  status
+
+→ 147 Playbook with ordered actions and history
+  GET http://127.0.0.1:5109/Abdulrahman-Kobeissi/playbooks/3 [200 OK, 1.86kB, 18ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 148 Missing playbook
+  GET http://127.0.0.1:5109/Abdulrahman-Kobeissi/playbooks/99999999 [404 NOT FOUND, 415B, 30ms]
+  √  HTTP 404
+  √  Consistent response envelope
+
+→ 149 Unauthorized playbook deletion
+  DELETE http://127.0.0.1:5109/Abdulrahman-Kobeissi/playbooks/4 [403 FORBIDDEN, 429B, 89ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 150 Delete unused playbook
+  DELETE http://127.0.0.1:5109/Abdulrahman-Kobeissi/playbooks/4 [200 OK, 373B, 38ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 151 Create manual audit log 1
+  POST http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs [201 CREATED, 532B, 57ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 152 Create manual audit log 2
+  POST http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs [201 CREATED, 532B, 34ms]
+  √  HTTP 201
+  √  Consistent response envelope
+
+→ 153 List automatic and manual logs
+  GET http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs [200 OK, 46.38kB, 33ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 154 Retrieve audit record
+  GET http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/175 [200 OK, 527B, 78ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 155 Missing audit record
+  GET http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/99999999 [404 NOT FOUND, 410B, 30ms]
+  √  HTTP 404
+  √  Consistent response envelope
+
+→ 156 Search logs by user_id
+  GET http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/search?user_id=8 [200 OK, 3.71kB, 27ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 157 Search logs by date
+  GET http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/search?date=2026-10-13 [200 OK, 46.62kB, 17ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 158 Search logs by action
+  GET http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/search?action=login.failed [200 OK, 1.74kB, 15ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 159 Search logs by severity
+  GET http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/search?severity=Warning [200 OK, 14.71kB, 28ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 160 Search logs by related_service
+  GET http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/search?related_service=incidents [200 OK, 7.74kB, 28ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 161 Logs by user
+  GET http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/user/8 [200 OK, 3.71kB, 31ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 162 Unauthorized audit deletion
+  DELETE http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/179 [403 FORBIDDEN, 429B, 40ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 163 Delete manual audit log
+  DELETE http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/179 [200 OK, 351B, 48ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 164 Generate summary report
+  GET http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/summary [200 OK, 1.85kB, 222ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 165 Generate incidents report
+  GET http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/incidents [200 OK, 508B, 72ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 166 Generate assets report
+  GET http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/assets [200 OK, 476B, 66ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 167 Generate threats report
+  GET http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/threats [200 OK, 1.37kB, 52ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 168 Generate vulnerabilities report
+  GET http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/vulnerabilities [200 OK, 518B, 64ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 169 Generate activity report
+  GET http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/activity [200 OK, 914B, 66ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 170 Analyst reports rejected
+  GET http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/summary [403 FORBIDDEN, 429B, 24ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 171 Employee reports rejected
+  GET http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/summary [403 FORBIDDEN, 429B, 95ms]
+  √  HTTP 403
+  √  Consistent response envelope
+
+→ 172 Employee logout
+  POST http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/logout [200 OK, 355B, 19ms]
+  √  HTTP 200
+  √  Consistent response envelope
+
+→ 173 Logged out token rejected
+  GET http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/r17918970950626932_employee [401 UNAUTHORIZED, 427B, 17ms]
+  √  HTTP 401
+  √  Consistent response envelope
+
+┌─────────────────────────┬───────────────────┬───────────────────┐
+│                         │          executed │            failed │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              iterations │                 1 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│                requests │               173 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│            test-scripts │               173 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│      prerequest-scripts │               173 │                 0 │
+├─────────────────────────┼───────────────────┼───────────────────┤
+│              assertions │               364 │                 0 │
+├─────────────────────────┴───────────────────┴───────────────────┤
+│ total run duration: 49.2s                                       │
+├─────────────────────────────────────────────────────────────────┤
+│ total data received: 189.8kB (approx)                           │
+├─────────────────────────────────────────────────────────────────┤
+│ average response time: 77ms [min: 6ms, max: 744ms, s.d.: 132ms] │
+└─────────────────────────────────────────────────────────────────┘
+Saved 173 real responses; 364 assertions; 0 failures.

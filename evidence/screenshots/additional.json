@@ -1,0 +1,78 @@
+[
+  {
+    "file": "database-schema.png",
+    "title": "Live Database Schema",
+    "caption": "Actual SQLite schema query showing all tables, primary keys and foreign keys."
+  },
+  {
+    "file": "database-users.png",
+    "title": "Stored users Records",
+    "caption": "Actual read-only SQLite query showing stored users records. Credential hashes are redacted where present."
+  },
+  {
+    "file": "database-assets.png",
+    "title": "Stored assets Records",
+    "caption": "Actual read-only SQLite query showing stored assets records. Credential hashes are redacted where present."
+  },
+  {
+    "file": "database-incidents.png",
+    "title": "Stored incidents Records",
+    "caption": "Actual read-only SQLite query showing stored incidents records. Credential hashes are redacted where present."
+  },
+  {
+    "file": "database-investigation_notes.png",
+    "title": "Stored investigation notes Records",
+    "caption": "Actual read-only SQLite query showing stored investigation notes records. Credential hashes are redacted where present."
+  },
+  {
+    "file": "database-threats.png",
+    "title": "Stored threats Records",
+    "caption": "Actual read-only SQLite query showing stored threats records. Credential hashes are redacted where present."
+  },
+  {
+    "file": "database-logs.png",
+    "title": "Stored logs Records",
+    "caption": "Actual read-only SQLite query showing stored logs records. Credential hashes are redacted where present."
+  },
+  {
+    "file": "database-vulnerabilities.png",
+    "title": "Stored vulnerabilities Records",
+    "caption": "Actual read-only SQLite query showing stored vulnerabilities records."
+  },
+  {
+    "file": "database-notifications.png",
+    "title": "Stored notifications Records",
+    "caption": "Actual read-only SQLite query showing stored notifications records."
+  },
+  {
+    "file": "database-playbooks.png",
+    "title": "Stored playbooks Records",
+    "caption": "Actual read-only SQLite query showing stored playbooks records."
+  },
+  {
+    "file": "database-response_actions.png",
+    "title": "Stored response actions Records",
+    "caption": "Actual read-only SQLite query showing stored response actions records."
+  },
+  {
+    "file": "database-action_history.png",
+    "title": "Stored action history Records",
+    "caption": "Actual read-only SQLite query showing stored action history records."
+  },
+  {
+    "file": "database-asset_history.png",
+    "title": "Stored asset history Records",
+    "caption": "Actual read-only SQLite query showing stored asset history records."
+  },
+  {
+    "file": "database-outbox.png",
+    "title": "Stored outbox Records",
+    "caption": "Actual read-only SQLite query showing stored outbox records."
+  },
+  {
+    "file": "github-history.png",
+    "title": "GitHub Commit History",
+    "caption": "Actual private repository history showing the implementation, testing and documentation commits by Abkob on 13 October 2026.",
+    "note": "Later report-packaging commits may follow this screenshot."
+  }
+]

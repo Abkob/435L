@@ -1,0 +1,593 @@
+{
+  "info": {
+    "name": "Sprint 1 supplemental evidence \u2014 Abdulrahman Kobeissi",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Actual saved requests and responses from database reconciliation and empty-result tests. Concrete IDs are historical evidence; run the main collection for reproduction."
+  },
+  "item": [
+    {
+      "name": "S01 POST /users/register",
+      "request": {
+        "method": "POST",
+        "url": "http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"full_name\": \"Empty Results Test Account\",\n  \"username\": \"emptyc483c26bc9\",\n  \"email\": \"emptyc483c26bc9@example.test\",\n  \"password\": \"[REDACTED]\",\n  \"department\": \"Lab\",\n  \"role\": \"Regular Employee/User\"\n}"
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 201 supplemental verification",
+          "originalRequest": {
+            "method": "POST",
+            "url": "http://127.0.0.1:5101/Abdulrahman-Kobeissi/users/register",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"full_name\": \"Empty Results Test Account\",\n  \"username\": \"emptyc483c26bc9\",\n  \"email\": \"emptyc483c26bc9@example.test\",\n  \"password\": \"[REDACTED]\",\n  \"department\": \"Lab\",\n  \"role\": \"Regular Employee/User\"\n}"
+            }
+          },
+          "status": "OK",
+          "code": 201,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"account_status\": \"Active\",\n    \"created_at\": \"2026-10-13T13:22:53.585574+00:00\",\n    \"department\": \"Lab\",\n    \"email\": \"emptyc483c26bc9@example.test\",\n    \"full_name\": \"Empty Results Test Account\",\n    \"id\": 12,\n    \"last_login_at\": null,\n    \"role\": \"Regular Employee/User\",\n    \"username\": \"emptyc483c26bc9\"\n  },\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S02 GET /logs/user/12",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/user/12",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "GET",
+            "url": "http://127.0.0.1:5105/Abdulrahman-Kobeissi/logs/user/12",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": [],\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S03 GET /notifications/user/12",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/user/12",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "GET",
+            "url": "http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/user/12",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": [\n    {\n      \"created_at\": \"2026-10-13T13:22:53.591570+00:00\",\n      \"event_id\": \"c607a7dd-b5f1-48d1-bac1-7a7dd083c699\",\n      \"id\": 31,\n      \"message\": \"Your account is ready.\",\n      \"notification_type\": \"System Notification\",\n      \"read_date\": null,\n      \"severity\": \"Low\",\n      \"status\": \"Unread\",\n      \"title\": \"Account created\",\n      \"user_id\": 12\n    }\n  ],\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S04 DELETE /notifications/31",
+      "request": {
+        "method": "DELETE",
+        "url": "http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/31",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "DELETE",
+            "url": "http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/31",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"deleted\": true,\n    \"id\": 31\n  },\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S05 GET /notifications/user/12",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/user/12",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "GET",
+            "url": "http://127.0.0.1:5108/Abdulrahman-Kobeissi/notifications/user/12",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": [],\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S06 GET /assets/search?name=%27%20OR%201%3D1--",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/search?name=%27%20OR%201%3D1--",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "GET",
+            "url": "http://127.0.0.1:5102/Abdulrahman-Kobeissi/assets/search?name=%27%20OR%201%3D1--",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": [],\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S07 GET /reports/assets",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/assets",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "GET",
+            "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/assets",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"by_type\": {\n      \"Server\": 2,\n      \"Workstation\": 2\n    },\n    \"critical_assets\": 2,\n    \"generated_at\": \"2026-10-13T13:22:55.332917+00:00\",\n    \"source\": \"Service HTTP APIs\",\n    \"total\": 4\n  },\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S08 GET /reports/incidents",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/incidents",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "GET",
+            "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/incidents",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"by_severity\": {\n      \"Critical\": 2,\n      \"High\": 2,\n      \"Low\": 2,\n      \"Medium\": 2\n    },\n    \"by_status\": {\n      \"Closed\": 2,\n      \"Open\": 6\n    },\n    \"generated_at\": \"2026-10-13T13:22:55.434662+00:00\",\n    \"source\": \"Service HTTP APIs\",\n    \"total\": 8\n  },\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S09 GET /reports/threats",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/threats",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "GET",
+            "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/threats",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"by_severity\": {\n      \"Critical\": 2,\n      \"Medium\": 2\n    },\n    \"by_type\": {\n      \"Domain\": 2,\n      \"IP Address\": 2\n    },\n    \"generated_at\": \"2026-10-13T13:22:55.543203+00:00\",\n    \"recent_added\": [\n      {\n        \"created_at\": \"2026-10-13T13:05:37.433214+00:00\",\n        \"description\": \"Escalated lab indicator\",\n        \"id\": 1,\n        \"severity\": \"Critical\",\n        \"source\": \"Lab review\",\n        \"threat_type\": \"IP Address\",\n        \"value\": \"198.18.147.64\"\n      },\n      {\n        \"created_at\": \"2026-10-13T13:05:37.499042+00:00\",\n        \"description\": \"Fictional test indicator; not external threat intelligence.\",\n        \"id\": 2,\n        \"severity\": \"Medium\",\n        \"source\": \"Local lab\",\n        \"threat_type\": \"Domain\",\n        \"value\": \"r1791896720766f.example.test\"\n      },\n      {\n        \"created_at\": \"2026-10-13T13:12:01.522782+00:00\",\n        \"description\": \"Escalated lab indicator\",\n        \"id\": 3,\n        \"severity\": \"Critical\",\n        \"source\": \"Lab review\",\n        \"threat_type\": \"IP Address\",\n        \"value\": \"198.18.24.154\"\n      },\n      {\n        \"created_at\": \"2026-10-13T13:12:01.772383+00:00\",\n        \"description\": \"Fictional test indicator; not external threat intelligence.\",\n        \"id\": 4,\n        \"severity\": \"Medium\",\n        \"source\": \"Local lab\",\n        \"threat_type\": \"Domain\",\n        \"value\": \"r17918970950626932.example.test\"\n      }\n    ],\n    \"source\": \"Service HTTP APIs\",\n    \"total\": 4\n  },\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S10 GET /reports/vulnerabilities",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/vulnerabilities",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "GET",
+            "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/vulnerabilities",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"by_severity\": {\n      \"Critical\": 2,\n      \"High\": 2\n    },\n    \"by_status\": {\n      \"Closed\": 2,\n      \"Open\": 2\n    },\n    \"critical_vulnerabilities\": 2,\n    \"generated_at\": \"2026-10-13T13:22:55.716431+00:00\",\n    \"source\": \"Service HTTP APIs\",\n    \"total\": 4\n  },\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S11 GET /reports/activity",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/activity",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "GET",
+            "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/activity",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"failed_login_attempts\": 6,\n    \"generated_at\": \"2026-10-13T13:22:55.856761+00:00\",\n    \"login_attempts\": 19,\n    \"most_performed_actions\": [\n      {\n        \"action\": \"access.denied\",\n        \"count\": 48\n      },\n      {\n        \"action\": \"login.succeeded\",\n        \"count\": 13\n      },\n      {\n        \"action\": \"user.created\",\n        \"count\": 11\n      },\n      {\n        \"action\": \"vulnerabilities.updated\",\n        \"count\": 10\n      },\n      {\n        \"action\": \"incident.created\",\n        \"count\": 8\n      },\n      {\n        \"action\": \"incident.status_changed\",\n        \"count\": 8\n      },\n      {\n        \"action\": \"action.status_changed\",\n        \"count\": 8\n      },\n      {\n        \"action\": \"login.failed\",\n        \"count\": 6\n      },\n      {\n        \"action\": \"user.status_changed\",\n        \"count\": 6\n      },\n      {\n        \"action\": \"asset.created\",\n        \"count\": 6\n      }\n    ],\n    \"source\": \"Service HTTP APIs\",\n    \"total_activities\": 187\n  },\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    },
+    {
+      "name": "S12 GET /reports/summary",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/summary",
+        "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{admin_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Actual 200 supplemental verification",
+          "originalRequest": {
+            "method": "GET",
+            "url": "http://127.0.0.1:5106/Abdulrahman-Kobeissi/reports/summary",
+            "description": "Abdulrahman Kobeissi. Actual supplemental integration verification. Use the main collection for a fresh repeatable run. These concrete-ID requests inspect the recorded lab run.",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{admin_token}}",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"assets\": 4,\n    \"critical_threats\": 2,\n    \"generated_at\": \"2026-10-13T13:22:56.375391+00:00\",\n    \"incidents\": 8,\n    \"logs\": 187,\n    \"open_incidents\": 6,\n    \"recent_activities\": [\n      {\n        \"action\": \"access.denied\",\n        \"created_at\": \"2026-10-13T13:12:24.080075+00:00\",\n        \"description\": \"GET /Abdulrahman-Kobeissi/users/r17918970950626932_employee: Invalid, expired or revoked session\",\n        \"event_id\": \"68e1163d-bd4b-4394-a8f2-c9ec83c92488\",\n        \"id\": 185,\n        \"related_service\": \"users\",\n        \"severity\": \"Warning\",\n        \"user_id\": null\n      },\n      {\n        \"action\": \"access.denied\",\n        \"created_at\": \"2026-10-13T13:12:23.598979+00:00\",\n        \"description\": \"GET /Abdulrahman-Kobeissi/reports/summary: Your role does not permit this operation\",\n        \"event_id\": \"f96396b4-68e6-4613-b1ff-bd5b668e4fe6\",\n        \"id\": 186,\n        \"related_service\": \"reports\",\n        \"severity\": \"Warning\",\n        \"user_id\": 8\n      },\n      {\n        \"action\": \"login.succeeded\",\n        \"created_at\": \"2026-10-13T13:22:52.726717+00:00\",\n        \"description\": \"User authenticated\",\n        \"event_id\": \"27a67658-d13d-4d5c-85c6-714b5bf60b6b\",\n        \"id\": 187,\n        \"related_service\": \"users\",\n        \"severity\": \"Information\",\n        \"user_id\": 1\n      },\n      {\n        \"action\": \"user.created\",\n        \"created_at\": \"2026-10-13T13:22:53.590569+00:00\",\n        \"description\": \"Created account emptyc483c26bc9\",\n        \"event_id\": \"fbe12fe7-d315-4ee2-b38d-c3bd871c6a12\",\n        \"id\": 188,\n        \"related_service\": \"users\",\n        \"severity\": \"Information\",\n        \"user_id\": 1\n      },\n      {\n        \"action\": \"notification.deleted\",\n        \"created_at\": \"2026-10-13T13:22:54.889515+00:00\",\n        \"description\": \"notification.deleted: record 31\",\n        \"event_id\": \"fefa40d2-14ce-44fa-a1b6-4a10d25db5da\",\n        \"id\": 189,\n        \"related_service\": \"notifications\",\n        \"severity\": \"Information\",\n        \"user_id\": 1\n      }\n    ],\n    \"source\": \"Service HTTP APIs\",\n    \"threats\": 4,\n    \"users\": 10,\n    \"vulnerabilities\": 4\n  },\n  \"status\": \"success\"\n}",
+          "_postman_previewlanguage": "json"
+        }
+      ]
+    }
+  ]
+}

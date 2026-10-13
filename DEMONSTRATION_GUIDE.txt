@@ -1,0 +1,37 @@
+SPRINT 1 DEMONSTRATION — ABDULRAHMAN KOBEISSI
+
+1. Start the nine services using the README instructions. Explain the ports,
+   shared SQLite store, and actual HTTP boundaries. Do not reset existing data.
+2. Log in as administrator. Show a rejected login and a rejected employee
+   administrative operation. Explain scrypt passwords and hashed sessions.
+3. Register an employee, inspect the safe response and stored record, then
+   demonstrate a duplicate username returning 409.
+4. Add an asset and show before/after update responses and retained history.
+5. Report an incident as an employee, assign an analyst as administrator, and
+   inspect the analyst notification. Show a rejected Open-to-Closed jump.
+6. Add an investigation note and progress through all incident states. Explain
+   the resolution timestamp and employee/analyst ownership restrictions.
+7. Create threat indicators, reject a duplicate, and search different fields.
+8. Create a vulnerability, reject an invalid CVSS score, and explain remediation.
+9. Mark a notification read, then show the unchanged first-read time on repeat.
+10. Add ordered playbook actions. Demonstrate why step 2 cannot start before
+    step 1 completes. Retrieve the execution history.
+11. Inspect automatic denial audit records, then compare a report with database
+    totals. Explain that report requests fetch data from the source HTTP APIs.
+12. Show the verified backup manifest and discuss how a failed delivery remains
+    in the outbox until retried. A Git push is not a live-data backup.
+
+Questions to be able to answer
+- Why use both API validation and database constraints?
+- Which classes demonstrate encapsulation, inheritance and composition?
+- What happens when Identity or a report dependency becomes unavailable?
+- Why retain deleted users/playbooks and asset history?
+- Why does an intentionally rejected request count as a passing test?
+- What would need to change before a public production deployment?
+
+Personal course tasks
+Confirm solo eligibility, permitted AI-assisted use, and complete the CREATES
+session and required feedback revisions. The handout disallows representing an
+entire AI-generated solution as independent student work. This package discloses
+substantial Codex assistance. Review and understand it before any submission.
+Nothing has been submitted to Moodle and no attendance has been invented.

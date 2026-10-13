@@ -1,0 +1,23 @@
+test_all_lifecycle_edges (test_invariants.InvariantTests.test_all_lifecycle_edges) ... ok
+test_audit_rows_are_immutable_in_database (test_invariants.InvariantTests.test_audit_rows_are_immutable_in_database) ... ok
+test_backup_is_restorable_and_cannot_overwrite (test_invariants.InvariantTests.test_backup_is_restorable_and_cannot_overwrite) ... ok
+test_denied_access_is_automatically_logged (test_invariants.InvariantTests.test_denied_access_is_automatically_logged) ... ok
+test_empty_malformed_and_unknown_input (test_invariants.InvariantTests.test_empty_malformed_and_unknown_input) ... ok
+test_empty_notifications_and_logs_are_arrays (test_invariants.InvariantTests.test_empty_notifications_and_logs_are_arrays) ... ok
+test_foreign_keys_protect_referenced_asset (test_invariants.InvariantTests.test_foreign_keys_protect_referenced_asset) ... ok
+test_incident_notes_and_analyst_scope (test_invariants.InvariantTests.test_incident_notes_and_analyst_scope) ... ok
+test_last_administrator_is_protected (test_invariants.InvariantTests.test_last_administrator_is_protected) ... ok
+test_missing_report_dependency_fails_visibly (test_invariants.InvariantTests.test_missing_report_dependency_fails_visibly) ... ok
+test_notification_read_is_idempotent_and_scoped (test_invariants.InvariantTests.test_notification_read_is_idempotent_and_scoped) ... ok
+test_outbox_retries_and_deduplicates (test_invariants.InvariantTests.test_outbox_retries_and_deduplicates) ... ok
+test_passwords_and_tokens_are_hashed (test_invariants.InvariantTests.test_passwords_and_tokens_are_hashed) ... ok
+test_playbook_history_survives_deletion (test_invariants.InvariantTests.test_playbook_history_survives_deletion) ... ok
+test_report_uses_http_client_and_matches_records (test_invariants.InvariantTests.test_report_uses_http_client_and_matches_records) ... ok
+test_role_change_and_suspension_revoke_sessions (test_invariants.InvariantTests.test_role_change_and_suspension_revoke_sessions) ... ok
+test_session_expiry_and_internal_authentication (test_invariants.InvariantTests.test_session_expiry_and_internal_authentication) ... ok
+test_sql_injection_is_a_literal_search_value (test_invariants.InvariantTests.test_sql_injection_is_a_literal_search_value) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 317.278s
+
+OK
