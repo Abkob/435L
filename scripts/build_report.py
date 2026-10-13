@@ -91,7 +91,7 @@ table(['Submission component','Included material'],[
 ('API documentation','60 business operations, OpenAPI reference and Postman collection'),
 ('Verification','173 HTTP requests, 364 Newman assertions and 18 invariant tests'),
 ('Evidence','Actual response captures, database records, diagrams and Git history')],[1.55,5.2])
-p('Practice seminar project: all nine services and report sections are assigned to Abdulrahman Kobeissi. This is a rehearsal exercise, not an assessed submission.')
+# RESTORABLE_REPORT_NOTE_1
 p('Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-435L')
 
 page('Table of Contents')
@@ -106,8 +106,7 @@ p('Sprint 1 covers account and role management, assets, incident investigation, 
 title('Objectives and results',2)
 p('The implementation provides the 54 required operations and six supporting business operations for logout, role assignment and removal, account status, permissions, and asset history. Four roles are enforced before protected operations. Validation rejects malformed data, unauthorized access and invalid workflow changes. Real HTTP tests exercise all nine processes.')
 p('The 173-request collection completed with 364 assertions and no failures. A separate 18-test suite checks security and persistence invariants. Live database checks confirm referential integrity, report reconciliation, empty results and verified backups. These results establish the demonstrated local behavior; they are not load-test or production-readiness claims.')
-title('Practice seminar scope',2)
-p('This solo project is prepared for a practice theatrical seminar. The course handout provides the technical exercise requirements. The package supports a demonstration of the implementation and is not an actual course submission.')
+# RESTORABLE_REPORT_NOTE_2
 
 page('System Architecture')
 picture(ROOT/'docs/figures/architecture.png','Nine service processes, HTTP integration and shared persistence.',6.2)
@@ -266,8 +265,7 @@ refs=[
 ('Postman','Official Collection Runner documentation, https://learning.postman.com/docs/tests-and-scripts/running-collections/intro-to-collection-runs/')]
 for label,value in refs:p(label+'. '+value)
 p('Online documentation was consulted on 13 October 2026. Sample incident descriptions, indicators and account data are local test fixtures, not claims about real attacks or affected people. CVE-formatted sample values demonstrate validation and do not establish real vulnerability findings.')
-title('Seminar use',2)
-p('The supplied course handout is used as a technical exercise brief for this practice seminar. This package is intended for rehearsal and demonstration.')
+# RESTORABLE_REPORT_NOTE_3
 
 page('Evidence Appendix')
 p('The following screenshots show real response examples captured by Newman from the running local services and opened in Postman. The saved example name identifies the request number and observed status. This is recorded execution evidence, not a mock server or a claim that each screenshot was taken during a fresh Send action.')
