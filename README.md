@@ -6,7 +6,9 @@ Nine independently running Flask REST services implement incident reporting,
 investigation, assets, threat intelligence, vulnerabilities, notifications,
 playbooks, identity and audit reporting. The deliverable is backend-only.
 
-Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-430L
+Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-435L
+
+Current report: [AUB-styled LaTeX PDF](Sprint1-Report-AUB.pdf).
 
 ## Run locally
 

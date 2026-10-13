@@ -92,7 +92,7 @@ table(['Submission component','Included material'],[
 ('Verification','173 HTTP requests, 364 Newman assertions and 18 invariant tests'),
 ('Evidence','Actual response captures, database records, diagrams and Git history')],[1.55,5.2])
 p('Solo project attribution: all nine services and this report are assigned to Abdulrahman Kobeissi. AI assistance is disclosed in References. No teammate activity or CREATES attendance is claimed.')
-p('Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-430L')
+p('Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-435L')
 
 page('Table of Contents')
 p('Every section is attributed to Abdulrahman Kobeissi. The evidence appendix is organized by the numbered Postman request, followed by database and GitHub captures.')
@@ -246,8 +246,8 @@ p('The supervisor creates a SQLite backup on startup and hourly. The backup util
 p('Runtime databases, passwords, tokens and backups stay outside Git and the submission archive. The package includes the schema and reproducible sample-data/test procedures. GitHub protects source and sanitized evidence; it does not provide a backup of live application data. These are verified private local recovery copies, not a claimed cloud backup.')
 
 page('GitHub and Version Control')
-p('Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-430L')
-p('The repository is private under Abkob. The project uses the requested 430L naming suffix from the brief. Commits record the implementation, tests, documentation and evidence in meaningful stages. No retroactive dates, fabricated contribution history or teammate authorship are used.')
+p('Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-435L')
+p('The repository is private under Abkob. The project uses the 435L naming suffix requested by the student. Commits record the implementation, tests, documentation and evidence in meaningful stages. No retroactive dates, fabricated contribution history or teammate authorship are used.')
 history=ROOT/'evidence/git-history.txt'
 if history.exists():code(history.read_text(encoding='utf-8').strip())
 p('All nine service areas, SQL design, testing and report sections are assigned to Abdulrahman Kobeissi’s solo project. Codex generated and assisted this work as disclosed below. Commit attribution identifies the configured repository author; it does not claim independent human authorship of AI-generated material.')
