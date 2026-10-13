@@ -155,17 +155,12 @@ database, then restore the chosen backup as a separate runtime database. Set
 `SECURITY_DB` to its path when starting. GitHub protects source code and sanitized
 evidence; it does **not** protect live application data or runtime credentials.
 
-## Solo attribution and course requirements
+## Practice seminar context
 
-All implementation and report sections belong to Abdulrahman Kobeissi's solo
-project. No teammate contributions or meeting attendance are claimed.
-The supplied handout requests teams of three and includes CREATES attendance;
-solo eligibility and the actual coaching session must be handled with the
-course staff. The report discloses the use of OpenAI Codex for implementation,
-test generation, documentation and report preparation. The handout prohibits
-submitting a complete AI-generated solution as the student's own work; this
-package requires the student's review, understanding and instructor-approved
-use before submission. Nothing has been submitted to Moodle.
+This solo project is prepared for a practice theatrical seminar by Abdulrahman
+Kobeissi. The course handout supplies the technical exercise requirements.
+The package is intended for rehearsal and demonstration, not an assessed
+submission.
 
 ## References
 

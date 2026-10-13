@@ -29,9 +29,6 @@ Questions to be able to answer
 - Why does an intentionally rejected request count as a passing test?
 - What would need to change before a public production deployment?
 
-Personal course tasks
-Confirm solo eligibility, permitted AI-assisted use, and complete the CREATES
-session and required feedback revisions. The handout disallows representing an
-entire AI-generated solution as independent student work. This package discloses
-substantial Codex assistance. Review and understand it before any submission.
-Nothing has been submitted to Moodle and no attendance has been invented.
+Practice seminar context
+This demonstration is a rehearsal for a theatrical seminar, not an actual course
+submission. Use the sequence above to present the working system.

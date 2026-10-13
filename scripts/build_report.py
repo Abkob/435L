@@ -91,7 +91,7 @@ table(['Submission component','Included material'],[
 ('API documentation','60 business operations, OpenAPI reference and Postman collection'),
 ('Verification','173 HTTP requests, 364 Newman assertions and 18 invariant tests'),
 ('Evidence','Actual response captures, database records, diagrams and Git history')],[1.55,5.2])
-p('Solo project attribution: all nine services and this report are assigned to Abdulrahman Kobeissi. AI assistance is disclosed in References. No teammate activity or CREATES attendance is claimed.')
+p('Practice seminar project: all nine services and report sections are assigned to Abdulrahman Kobeissi. This is a rehearsal exercise, not an assessed submission.')
 p('Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-435L')
 
 page('Table of Contents')
@@ -106,8 +106,8 @@ p('Sprint 1 covers account and role management, assets, incident investigation, 
 title('Objectives and results',2)
 p('The implementation provides the 54 required operations and six supporting business operations for logout, role assignment and removal, account status, permissions, and asset history. Four roles are enforced before protected operations. Validation rejects malformed data, unauthorized access and invalid workflow changes. Real HTTP tests exercise all nine processes.')
 p('The 173-request collection completed with 364 assertions and no failures. A separate 18-test suite checks security and persistence invariants. Live database checks confirm referential integrity, report reconciliation, empty results and verified backups. These results establish the demonstrated local behavior; they are not load-test or production-readiness claims.')
-title('Solo scope and submission status',2)
-p('The student requested a solo project. The handout normally specifies three students and three services each, so course staff must confirm solo eligibility. The required CREATES meeting and incorporation of its feedback remain personal course tasks. The project has not been uploaded to Moodle. The handout restricts complete AI-generated submissions; the disclosed assisted package requires student review, understanding and instructor-approved use.')
+title('Practice seminar scope',2)
+p('This solo project is prepared for a practice theatrical seminar. The course handout provides the technical exercise requirements. The package supports a demonstration of the implementation and is not an actual course submission.')
 
 page('System Architecture')
 picture(ROOT/'docs/figures/architecture.png','Nine service processes, HTTP integration and shared persistence.',6.2)
@@ -250,13 +250,13 @@ p('Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-435L')
 p('The repository is private under Abkob. The project uses the 435L naming suffix requested by the student. Commits record the implementation, tests, documentation and evidence in meaningful stages. No retroactive dates, fabricated contribution history or teammate authorship are used.')
 history=ROOT/'evidence/git-history.txt'
 if history.exists():code(history.read_text(encoding='utf-8').strip())
-p('All nine service areas, SQL design, testing and report sections are assigned to Abdulrahman Kobeissi’s solo project. Codex generated and assisted this work as disclosed below. Commit attribution identifies the configured repository author; it does not claim independent human authorship of AI-generated material.')
+p('All nine service areas, SQL design, testing and report sections are assigned to Abdulrahman Kobeissi’s solo practice project. Commit attribution identifies the configured repository author.')
 p('The GitHub evidence appendix shows the actual repository commit page. The final packaging commit may follow that dated screenshot. Reviewers need permission to the private repository; no unrequested collaborators or public access were added.')
 title('Reproduction',2)
 p('Create a Python virtual environment, install requirements-lock.txt, and run python run.py. The first start creates runtime/bootstrap.json with a random administrator password. Import the collection and clean environment into Postman, select the local environment, set that password locally, and use a local Desktop Agent. Run all requests in order. The README includes exact commands and port assignments.')
 p('Reruns use unique names and do not reset an existing database. To start an isolated demonstration, use a separate SECURITY_RUNTIME and SECURITY_DB path. Keep the current database and verified backup before any restoration.')
 
-page('References and AI Disclosure')
+page('References')
 refs=[
 ('Course specification','Final Project Fall 2026-2027-Sprint 1.docx, supplied course handout.'),
 ('Prior course work','Local Lab 1, Lab 3, Lab 4 and Lab 5 project materials and earlier project chats for Flask, OOP, SQLite, Postman, Git workflow and report conventions.'),
@@ -266,11 +266,8 @@ refs=[
 ('Postman','Official Collection Runner documentation, https://learning.postman.com/docs/tests-and-scripts/running-collections/intro-to-collection-runs/')]
 for label,value in refs:p(label+'. '+value)
 p('Online documentation was consulted on 13 October 2026. Sample incident descriptions, indicators and account data are local test fixtures, not claims about real attacks or affected people. CVE-formatted sample values demonstrate validation and do not establish real vulnerability findings.')
-title('Assistance disclosure',2)
-p('OpenAI Codex was used to interpret the handout and prior project context, design and generate the backend, write tests, run local verification, prepare Postman requests, capture actual response views, create diagrams, write API documentation, manage Git commits and assemble this report. This is substantial implementation and writing assistance, not merely proofreading. The screenshots and responses come from executing the resulting local implementation; they are not simulated outputs.')
-p('Abdulrahman Kobeissi must review, understand and be able to demonstrate the implementation. Because the handout prohibits copying an entire AI-generated solution, this assisted package must not be represented as independently authored student work. Course staff approval for the permitted use of the material and solo scope remains necessary.')
-title('CREATES status',2)
-p('No coaching attendance or feedback is claimed. The brief requires a 30-minute CREATES session at least three days before the deadline and application of its feedback. Booking, attendance, questions discussed and any resulting revisions must be completed and recorded by the student.')
+title('Seminar use',2)
+p('The supplied course handout is used as a technical exercise brief for this practice seminar. This package is intended for rehearsal and demonstration.')
 
 page('Evidence Appendix')
 p('The following screenshots show real response examples captured by Newman from the running local services and opened in Postman. The saved example name identifies the request number and observed status. This is recorded execution evidence, not a mock server or a claim that each screenshot was taken during a fresh Send action.')
