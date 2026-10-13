@@ -13,6 +13,7 @@ import subprocess
 import sys
 import threading
 import time
+from datetime import datetime,timezone
 from werkzeug.security import generate_password_hash
 from security_backend.core import ADMIN,Context,Database,SERVICES,Settings,now
 
@@ -47,6 +48,23 @@ def deliver(settings,stop,services=None):
             except Exception as exc:print(f'Event delivery error ({ctx.service}): {exc}',file=sys.stderr,flush=True)
         stop.wait(0.5)
 
+def automatic_backups(settings,stop):
+    """Verified startup and hourly recovery copies; failures are written visibly."""
+    from scripts.backup import backup
+    runtime=Path(os.environ.get('SECURITY_RUNTIME',str(ROOT/'runtime')))
+    while not stop.is_set():
+        stamp=datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+        destination=runtime/'backups'/f'security-{stamp}.db'
+        try:
+            manifest=backup(settings.database,destination)
+            status={'status':'success','path':str(destination),'verified_at':now(),'sha256':manifest['sha256']}
+            print(f'Verified automatic backup: {destination.name}',flush=True)
+        except Exception as exc:
+            status={'status':'failed','checked_at':now(),'message':str(exc)}
+            print(f'BACKUP FAILED: {exc}',file=sys.stderr,flush=True)
+        (runtime/'backup-status.json').write_text(json.dumps(status,indent=2),encoding='utf-8')
+        stop.wait(3600)
+
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--service',choices=SERVICES)
@@ -70,6 +88,7 @@ def main():
             log=(Path(os.environ.get('SECURITY_RUNTIME',str(ROOT/'runtime')))/f'{service}.log').open('a',encoding='utf-8')
             proc=subprocess.Popen([sys.executable,str(ROOT/'run.py'),'--service',service,'--port-offset',str(args.port_offset)],cwd=ROOT,stdout=log,stderr=log,creationflags=subprocess.CREATE_NO_WINDOW if os.name=='nt' else 0)
             children.append((proc,log))
+        threading.Thread(target=automatic_backups,args=(settings,stop),daemon=True).start()
         print('Nine services running on 127.0.0.1 ports '+', '.join(str(p+args.port_offset) for p in SERVICES.values()),flush=True)
         print('Press Ctrl+C to stop. Existing database is preserved.',flush=True)
         while not stop.wait(1):

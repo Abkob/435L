@@ -147,7 +147,7 @@ class VulnerabilityService(CatalogService):
         VULNERABILITY_FLOW.validate(current['status'],target)
         if 'resolution_date' in data and target not in ('Resolved','Closed'):
             raise ApiError('Resolution date requires Resolved or Closed status')
-        if 'resolution_date' in data and data['resolution_date']<current['created_at']:
+        if 'resolution_date' in data and datetime.fromisoformat(data['resolution_date'])<datetime.fromisoformat(current['created_at']):
             raise ApiError('Resolution date cannot predate discovery')
         if target=='Resolved' and current['status']!='Resolved':
             data.setdefault('resolution_date',now())

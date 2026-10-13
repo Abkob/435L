@@ -64,12 +64,29 @@ def main():
                     body_fields={}
                     for sc,rec in successes:
                         if sc.body:body_fields.update(sc.body)
+                    # Document every accepted update field, including optional fields
+                    # that need not appear in the recorded happy-path request.
+                    complete_fields = {
+                        ('users','update_user'): ('full_name','email','department'),
+                        ('assets','create'): ('name','asset_type','ip_address','operating_system','department','owner_id','location','criticality','status'),
+                        ('assets','update'): ('name','asset_type','ip_address','operating_system','department','owner_id','location','criticality','status'),
+                        ('threats','update'): ('description','severity','source'),
+                        ('vulnerabilities','update'): ('description','severity','status','cvss','resolution_date'),
+                        ('playbooks','add_action'): ('description','step_number','assigned_user_id'),
+                        ('playbooks','action_status'): ('status','assigned_user_id'),
+                    }
+                    for field in complete_fields.get((service,rule.endpoint),()):
+                        body_fields.setdefault(field,None)
                     if body_fields:
-                        required=list(body_fields) if method=='POST' else (['status'] if path.endswith('/status') or service=='playbooks' else ['role'] if path.endswith('/role') else ['analyst_id'] if path.endswith('/assign') else [])
-                        required=[f for f in required if f not in ('reporter_id','account_status')]
+                        required=list(body_fields) if method=='POST' else (['account_status' if service=='users' else 'status'] if path.endswith('/status') or service=='playbooks' else ['role'] if path.endswith('/role') else ['analyst_id'] if path.endswith('/assign') else [])
+                        required=[f for f in required if f!='reporter_id' and not (method=='POST' and f=='account_status')]
                         optional={'assets':['operating_system','location','status'],'playbooks':['assigned_user_id']}
                         required=[f for f in required if f not in optional.get(service,[])]
                         body_schema={'type':'object','additionalProperties':False,'properties':{k:schema_for(k,v) for k,v in body_fields.items()}}
+                        if service=='incidents' and 'asset_id' in body_schema['properties']:
+                            body_schema['properties']['asset_id']['nullable']=True
+                        if service=='playbooks' and rule.endpoint=='add_action':
+                            body_schema['properties']['assigned_user_id']['nullable']=True
                         if required:body_schema['required']=required
                         if method=='PUT':body_schema['minProperties']=1
                         op['requestBody']={'required':True,'content':{'application/json':{'schema':body_schema,'example':example_r['request_body']}}}
@@ -81,7 +98,7 @@ def main():
                     for code in sorted(used):
                         response={'description':codes.get(code,'Response')}
                         sample=next((rec['response_body'] for sc,rec in candidates if rec['response_status']==code),None)
-                        if sample:response['content']={'application/json':{'example':sample}}
+                        if sample is not None:response['content']={'application/json':{'example':sample}}
                         op['responses'][str(code)]=response
                     spec['paths'].setdefault(path,{})[method.lower()]=op
                     endpoints.append({'service':service,'port':port,'method':method,'path':path,'purpose':purpose,'roles':list(roles),'operation':op})
