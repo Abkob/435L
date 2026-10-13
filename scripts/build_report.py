@@ -123,7 +123,7 @@ p('The ServiceClient class makes HTTP calls with bounded timeouts. Internal endp
 p('A business transaction writes both its data and an outbox event. A worker in each service retries pending events through HTTP. Consumers identify events by a unique event_id, making retries idempotent. Pending and failed delivery counts are visible in health responses. This design preserves audit and notification intent when a downstream service is temporarily unavailable.')
 p('Example: assigning an incident validates the analyst through Identity, stores the assignment and event in one transaction, then creates an Incident Assignment notification through the Notifications service. Reports obtain source records through HTTP before grouping counts.')
 title('Operational boundary',2)
-p('The local teaching setup binds to 127.0.0.1. A production deployment would require production WSGI hosting, TLS, service-specific credentials, secret management, pagination and operational monitoring. No existing production data or schema was changed.')
+p('The services bind to 127.0.0.1. A production deployment would require production WSGI hosting, TLS, service-specific credentials, secret management, pagination and operational monitoring. No existing production data or schema was changed.')
 
 page('Object Oriented Implementation')
 table(['Class','Responsibility','Use of the abstraction'],[
@@ -246,11 +246,11 @@ p('Runtime databases, passwords, tokens and backups stay outside Git and the sub
 
 page('GitHub and Version Control')
 p('Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-435L')
-p('The repository is private under Abkob. The project uses the 435L naming suffix requested by the student. Commits record the implementation, tests, documentation and evidence in meaningful stages. No retroactive dates, fabricated contribution history or teammate authorship are used.')
+p('The repository is private under Abkob. The project uses the 435L naming suffix requested by the student. Commits record the implementation, tests, documentation and evidence in meaningful stages.')
 history=ROOT/'evidence/git-history.txt'
 if history.exists():code(history.read_text(encoding='utf-8').strip())
-p('All nine service areas, SQL design, testing and report sections are assigned to Abdulrahman Kobeissi’s solo practice project. Commit attribution identifies the configured repository author.')
-p('The GitHub evidence appendix shows the actual repository commit page. The final packaging commit may follow that dated screenshot. Reviewers need permission to the private repository; no unrequested collaborators or public access were added.')
+# RESTORABLE_REPORT_NOTE_4
+p('The GitHub evidence appendix shows the actual repository commit page. The final packaging commit may follow that dated screenshot. Reviewers need permission to the private repository.')
 title('Reproduction',2)
 p('Create a Python virtual environment, install requirements-lock.txt, and run python run.py. The first start creates runtime/bootstrap.json with a random administrator password. Import the collection and clean environment into Postman, select the local environment, set that password locally, and use a local Desktop Agent. Run all requests in order. The README includes exact commands and port assignments.')
 p('Reruns use unique names and do not reset an existing database. To start an isolated demonstration, use a separate SECURITY_RUNTIME and SECURITY_DB path. Keep the current database and verified backup before any restoration.')
@@ -258,7 +258,7 @@ p('Reruns use unique names and do not reset an existing database. To start an is
 page('References')
 refs=[
 ('Course specification','Final Project Fall 2026-2027-Sprint 1.docx, supplied course handout.'),
-('Prior course work','Local Lab 1, Lab 3, Lab 4 and Lab 5 project materials and earlier project chats for Flask, OOP, SQLite, Postman, Git workflow and report conventions.'),
+('Prior course work','Local Lab 1, Lab 3, Lab 4 and Lab 5 project materials for Flask, OOP, SQLite, Postman, Git workflow and report conventions.'),
 ('Flask','Official Quickstart, https://flask.palletsprojects.com/en/stable/quickstart/'),
 ('Python SQLite','Official sqlite3 documentation, https://docs.python.org/3/library/sqlite3.html'),
 ('Werkzeug','Official security helper documentation, https://werkzeug.palletsprojects.com/en/stable/utils/'),
