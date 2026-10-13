@@ -193,7 +193,7 @@ page('Error Handling and Validation')
 p('Every service uses a common JSON error envelope with status="error", a meaningful message and request_id. Error handlers map expected validation, authentication, authorization, lookup and relationship failures to consistent HTTP statuses. Unhandled failures return a generic server error rather than exposing internals.')
 table(['HTTP','Meaning','Demonstrated case'],[(400,'Invalid input','Invalid email, IP, severity, CVSS or unsupported field'),(401,'Authentication failure','Missing token, incorrect login or revoked session'),(403,'Permission or ownership failure','Employee changes incident status; analyst deletes a threat'),(404,'Missing record','Unknown user, asset, incident, catalog entry or playbook'),(409,'Conflict','Duplicate username/indicator or skipped workflow state'),(415,'Unsupported content type','JSON-required operation sent non-JSON content'),(429,'Rate limit','Repeated failed login attempts'),(503,'Dependency unavailable','A report source cannot be contacted')],[.6,2.2,3.95])
 p('Input is parsed as JSON objects. Required fields, data types, length bounds, allowed values and unknown keys are checked before persistence. The API rejects empty or malformed requests. Search fields come from a fixed allowlist, and SQL values use placeholders; user input is never inserted into SQL syntax. HTML is not rendered by the backend, so data is stored as text rather than altered with lossy HTML stripping.')
-p('Negative requests are intentional test successes when the expected error is returned. Screenshots 013, 015, 025, 040, 065, 072, 085–087, 106, 117 and other appendix cases show these failures. The invariant suite also verifies that SQL-like text remains literal and that a direct log UPDATE fails at the database layer.')
+p('Negative requests are intentional test successes when the expected error is returned. Screenshots 013, 015, 025, 051, 065, 072, 085–087, 106, 117 and other appendix cases show these failures. The invariant suite also verifies that SQL-like text remains literal and that a direct log UPDATE fails at the database layer.')
 
 page('API Documentation')
 p('docs/openapi.json describes all 60 business operations. docs/API_REFERENCE.md lists purpose, method, complete route, role requirements, path/query parameters, accepted request fields, response examples and possible errors. postman/Sprint1.postman_collection.json contains every numbered test with descriptions, scripts and real response examples.')
@@ -234,6 +234,7 @@ page('Verification and Recovery')
 table(['Check','Observed result','Evidence file'],[
 ('Real HTTP scenarios','173 requests; 364 checks; no failures','evidence/http-summary.json'),
 ('Newman collection execution','173 requests; 364 assertions; no failures','evidence/newman-results.json'),
+('Fresh GitHub checkout','173 requests; 364 assertions; no failures on a separate database','evidence/clean-checkout.json'),
 ('Security and persistence invariants','18 tests pass','evidence/unit-tests.txt'),
 ('SQLite integrity','ok; zero foreign-key violations','evidence/integration-checks.json'),
 ('Report reconciliation','All six report types match stored data','evidence/integration-checks.json'),
@@ -284,7 +285,7 @@ for shot in SHOTS:
     picture(ROOT/'evidence/screenshots'/shot['file'],name+'. The request and saved actual response demonstrate this operation.',7.6)
     if idx in (56,57,58,59):
         p({56:'Severity rationale: Low represents a limited-impact event. This fictional Phishing fixture verifies that the system stores that category correctly.',57:'Severity rationale: Medium represents an event requiring investigation. This fictional Phishing fixture tests that level without asserting a real attack.',58:'Severity rationale: High represents an event affecting important systems or users. This fictional fixture exercises escalation data; no real compromise is claimed.',59:'Severity rationale: Critical represents an event needing immediate response. This fictional fixture tests urgent classification; it is not a measured real-world impact assessment.'}[idx])
-    if idx in (89,91,104,111,42,44,124,126):p('Compare this view with the adjacent before/update/after requests. The full response remains available in the collection.')
+    if idx in (89,91,104,111,40,42,124,126):p('Compare this view with the adjacent before/update/after requests. The full response remains available in the collection.')
 
 extra=ROOT/'evidence/screenshots/additional.json'
 if extra.exists():

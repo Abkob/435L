@@ -1,0 +1,16 @@
+{
+  "source": "Fresh private GitHub clone, isolated database and ports 5201\u20135209",
+  "commit": "a51808ed7fc9aa881e7ad608cdd1c08bead66348",
+  "captured_at": "2026-10-13T14:20:59.491Z",
+  "requests": {
+    "total": 173,
+    "pending": 0,
+    "failed": 0
+  },
+  "assertions": {
+    "total": 364,
+    "pending": 0,
+    "failed": 0
+  },
+  "failures": []
+}
