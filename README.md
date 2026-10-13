@@ -8,7 +8,9 @@ playbooks, identity and audit reporting. The deliverable is backend-only.
 
 Repository: https://github.com/Abkob/Abdulrahman-Kobeissi-435L
 
-Current report: [AUB-styled LaTeX PDF](Sprint1-Report-AUB.pdf).
+Reports:
+- [Full report with Postman evidence — 191 pages](Sprint1-Report-AUB.pdf)
+- [Report without Postman screenshot evidence — 47 pages](Sprint1-Report-AUB-Without-Postman.pdf)
 
 ## Run locally
 
